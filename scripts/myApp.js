@@ -16,7 +16,9 @@ angular.module('myApp', [])
 			return a * b;
 		}
 		$scope.$watch('numberLimit', function(limit) {
-			$scope.numbers = populateNumbers(limit);
+			if(limit!==null) {
+				$scope.numbers = populateNumbers(limit);
+			};
 		});
 
 		$scope.numberLimit = $attrs.initialNumberLimit || 10;
