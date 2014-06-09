@@ -13,5 +13,20 @@ angular.module('myApp', [])
 		$scope.$watch('numberLimit', function(limit) {
 			$scope.numbers = populateNumbers(limit);
 		});
+
 		$scope.numberLimit = $attrs.initialNumberLimit || 10;
+
+		var activeFactorA, activeFactorB;
+		$scope.setActiveFactors = function(a,b) {
+			activeFactorA = a;
+			activeFactorB = b;
+		};
+
+		$scope.clearActiveFactors = function() {
+			activeFactorA = activeFactorB = null;
+		};
+
+		$scope.matchesFactor = function	(a,b) {
+			return a === activeFactorA || b === activeFactorB
+		};
 	});
